@@ -2,7 +2,7 @@
 <ul class="w3-navbar w3-blue w3-padding">
   <li><a href="#">Accueil</a></li>
   <li><a href="?page=review">Ecris Review</a></li>
-  <li><a href="?page=message">Message</a></li>
+  <li><a href="?page=event">Evenement</a></li>
   <li><a href="?page=about">About</a></li>
  
   <li class="w3-navitem">
@@ -43,7 +43,7 @@ class="w3-btn">Login/Signup</button>
 
 
 
-<div class="w3-third">
+<div class="w3-third w3-padding">
  <div class="w3-card-4" style="width:90%">
     <header class="w3-container w3-light-grey">
       <h3>John Doe</h3>
