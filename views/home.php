@@ -1,9 +1,9 @@
 
 <ul class="w3-navbar w3-blue w3-padding">
   <li><a href="#">Accueil</a></li>
-  <li><a href="/views/review.php">Ecris Review</a></li>
-  <li><a href="#">Message</a></li>
-  <li><a href="#">About</a></li>
+  <li><a href="?page=review">Ecris Review</a></li>
+  <li><a href="?page=message">Message</a></li>
+  <li><a href="?page=about">About</a></li>
  
   <li class="w3-navitem">
     <input type="text" class="w3-input w3-border-0 w3-padding-0" placeholder="Cherche..">
@@ -35,6 +35,7 @@ class="w3-btn">Login/Signup</button>
     </div>
 
      <h2 class="w3-center">Les Derniers Revues</h2>
+    
     <div class="w3-padding reviews"><?php displayReviews() ?> </div>
    
   </div>
