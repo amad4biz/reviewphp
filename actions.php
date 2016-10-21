@@ -3,6 +3,13 @@
 
 include('functions.php');
 
+   $error="";
+
+    $postEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+    $postEmail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $postPassword = filter_var( $_POST['password'], FILTER_SANITIZE_STRING);
+
+
 // validation of user id and password
 
 if($_GET['action']=="loginSignup"){
@@ -16,13 +23,13 @@ if($_GET['action']=="loginSignup"){
 
        $error = "Please enter a valid email address";
    }
-   else if(!$_POST['password']){
+   else if(! $postPassword ){
 
    	$error = "Password is required";
 
 
     
-   }else if(strlen($_POST['password']) < 8 ){
+   }else if(strlen($postPassword ) < 8 ){
 
       $error = "Password must be at least 8 characters long";
 
@@ -43,14 +50,11 @@ if($_GET['action']=="loginSignup"){
 
     if($_POST['loginActive']=='0'){
        
-       $postEmail = $_POST['email'];
-       $postPassword = $_POST['password'];
+      
         
         $users = "SELECT * FROM users WHERE username = ". $postEmail ;
 
         $usersResult = $db->query($users);
-
-         
 
         $rowCount = $usersResult->num_rows;
 
