@@ -28,17 +28,17 @@ $(document).ready(function(){
 
 
 
-$().click(function(){
+$('#loginSignupBtn').click(function(){
 
 
    $.ajax({
 
        type:"POST",
-       url : "actions.php=action?loginSignup",
+       url: "actions.php=?actionloginSignup",
        data: "email=" + $("#username").val()  + "&password=" + $("#password").val() + "&loginActive=" + $("#loginActive").val(), 
        success : function(result){
 
-             alert('Hi')
+             alert('Hi');
 
        }
 

@@ -17,7 +17,7 @@ endif;
 
 
 
-function displayReviews(){
+/*function displayReviews(){
 
   global $db;
 
@@ -42,5 +42,12 @@ function displayReviews(){
 }
 
 
+
+function addReviews (){
+
+   
+
+
+}*/
 
 ?>

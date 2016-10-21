@@ -36,7 +36,7 @@ class="w3-btn">Login/Signup</button>
 
      <h2 class="w3-center">Les Derniers Revues</h2>
     
-    <div class="w3-padding reviews"><?php displayReviews() ?> </div>
+   <!-- <div class="w3-padding reviews"><?php //displayReviews() ?> </div>-->
    
   </div>
 </div>
@@ -60,37 +60,5 @@ class="w3-btn">Login/Signup</button>
 </div>
 </div>
 
-<!-- modal start -->
-<div id="id01" class="w3-modal ">
-  <div class="w3-modal-content">
-    <div class="w3-container w3-padding ">
-      <span onclick="document.getElementById('id01').style.display='none'" 
-      class="w3-closebtn">&times;</span>
-     
-
-        <div class="w3-container w3-blue">
-          <h2 id="modalTitle">Login</h2>
-        </div>
-
-        <form class="w3-container">
-
-        <label class="w3-label">First Name</label>
-        <input class="w3-input w3-border" type="text">
-
-        <label class="w3-label">Last Name</label>
-        <input class="w3-input w3-border" type="text">
-
-        <label class="w3-label">Email</label>
-        <input class="w3-input w3-border" type="text" name="email">
-
-        <label class="w3-label">Password</label>
-        <input class="w3-input w3-border" type="text" name="password">
-
-         <a id="toggleLogin" href="#">Signup</a>
-         <button class="w3-btn w3-blue w3-margin-top" type="button" id="loginSignupBtn"> Login </button>
-        </form>
 
 
-    </div>
-  </div>
-</div> <!-- modal end -->
