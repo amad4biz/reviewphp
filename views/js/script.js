@@ -34,21 +34,27 @@ $('#loginSignupBtn').click(function(){
    $.ajax({
 
        type:"POST",
-       url: "actions.php=?actionloginSignup",
-       data: "email=" + $("#username").val()  + "&password=" + $("#password").val() + "&loginActive=" + $("#loginActive").val(), 
+        url: "./actions.php?action=loginSignup",
+       data: "email=" + $("#email").val()  + "&password=" + $("#password").val() + "&loginActive=" + $("#loginActive").val(), 
        success : function(result){
 
-             alert('Hi');
+             if(result==1){
+              
+                  window.location.assign('/')
 
-       }
+             }else{
+                 
+                  $('#loginSignupError').html(result).show();
+
+             }
 
 
-   })
 
 
-});
+           }
+      })
 
-
+  })
 
 
 

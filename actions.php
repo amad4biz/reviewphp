@@ -4,7 +4,7 @@
 include('functions.php');
 
    $error="";
-
+// sanitizing email and password input
     $postEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     $postEmail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $postPassword = filter_var( $_POST['password'], FILTER_SANITIZE_STRING);
@@ -14,7 +14,7 @@ include('functions.php');
 
 if($_GET['action']=="loginSignup"){
 
-    
+    // validation for missing and email is valid
    if(!$_POST['email']){
 
    	$error = "email is required";
@@ -23,13 +23,13 @@ if($_GET['action']=="loginSignup"){
 
        $error = "Please enter a valid email address";
    }
-   else if(! $postPassword ){
+   else if(! $postPassword ){            // checking if password was entered
 
    	$error = "Password is required";
 
 
     
-   }else if(strlen($postPassword ) < 8 ){
+   }else if(strlen($postPassword ) < 8 ){          // checking if password is at least 8 char
 
       $error = "Password must be at least 8 characters long";
 

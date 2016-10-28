@@ -1,5 +1,3 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="views/script.js"></script>
 
 <!-- modal start -->
 <div id="id01" class="w3-modal ">
@@ -19,12 +17,6 @@
 
          <input type="hidden" name="loginActive" id="loginActive" value="1">
 
-     <!--   <label class="w3-label">First Name</label>
-        <input class="w3-input w3-border" type="text">
-
-        <label class="w3-label">Last Name</label>
-        <input class="w3-input w3-border" type="text"> -->
-
         <label class="w3-label">Email</label>
         <input class="w3-input w3-border" type="text" name="email" id="email">
 
@@ -39,5 +31,9 @@
     </div>
   </div>
 </div> <!-- modal end -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="views/js/script.js"></script>
+
 </body>
 </html>
