@@ -1,13 +1,15 @@
 <?php 
 
 
-include('functions.php');
+include'functions.php';
+
 
    $error="";
 // sanitizing email and password input
     $postEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     $postEmail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $postPassword = filter_var( $_POST['password'], FILTER_SANITIZE_STRING);
+
 
 
 // validation of user id and password
@@ -50,54 +52,74 @@ if($_GET['action']=="loginSignup"){
 
     if($_POST['loginActive']=='0'){
        
-      
+          
+         $users = "SELECT * FROM users WHERE email = '$postEmail'" ;
+
         
-        $users = "SELECT * FROM users WHERE username = ". $postEmail ;
 
-        $usersResult = $db->query($users);
-
-        $rowCount = $usersResult->num_rows;
-
-        if($rowCount!=0) $error = "This email address is already taken";
+         $result = $db->query($users) or trigger_error($db->error." [$users]");
 
 
-    }else{
 
+         $rowCount = $result->num_rows;
 
-       $postEmail = $_POST['email'];
-       $postPassword = $_POST['password'];
-
-        $insertUser = "INSERT into users (`username`, `password`) VALUES('".$postEmail."', '".$postPassword."' )";
-
-        if($db->query($insertUser)===TRUE){
-
-        	echo '1';
-        }else{
-
-        	echo '2';
-
-        	 // display error
         
-		  /*  if($error != ""){
+        if($rowCount>0) $error = "This email address is already taken";
 
-		    	echo $error;
-		      
-		    	exit();
-		    }*/
- 
-        }
+       	else{
+
+             $insertUser = "INSERT INTO users (`email`, `password`) VALUES('".$postEmail."', '".$postPassword."' )";
+
+			        if($db->query($insertUser)===TRUE){
+
+			        	echo 'Signed UP';
+			        }else{
+
+			        	echo 'There is an error';
+
+			        }
+
+
+       	    }
 
 
        
 
 
+    }else{
+          // signing in
+
+    	   $users = "SELECT * FROM users WHERE email = '$postEmail'" ;
+
+    	   $result = $db->query($users);
+    	
+    	   $row = $result->fetch_assoc();   
+
+    	     var_dump($row);
+
+    	     if($row['password']==$row['id'].$postPassword){
+
+    	     	echo 1;
+    	     }else{
+
+    	     	$error ="password/username is incorrect";
+    	     }    
+
+
     }// end of loginActive==0
 
 
-  
-   
+           // display error
+			        
+			 if($error != ""){
 
-}
+					    	echo $error;
+					      
+					    	exit();
+					    }
+
+
+}   // end of signup and login block
 
 
 
