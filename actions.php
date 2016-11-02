@@ -8,8 +8,14 @@ include'functions.php';
 // sanitizing email and password input
     $postEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     $postEmail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $postPassword = filter_var( $_POST['password'], FILTER_SANITIZE_STRING);
+    $postEmail = trim($_POST['email']);
+    $postEmail = htmlspecialchars($_POST['email']);
 
+    $postPassword = filter_var( $_POST['password'], FILTER_SANITIZE_STRING);
+    $postPassword = trim($_POST['password']);
+    $postPassword = htmlspecialchars($_POST['password']);
+
+  
 
 
 // validation of user id and password
@@ -69,9 +75,14 @@ if($_GET['action']=="loginSignup"){
        	else{
 
              $insertUser = "INSERT INTO users (`email`, `password`) VALUES('".$postEmail."', '".$postPassword."' )";
+           
 
 			        if($db->query($insertUser)===TRUE){
 
+			  $insertUser = "UPDATE users SET `password` = '".md5(md5($_POST['password']))."' WHERE `id` = " .$db->insert_id;
+               $db->query($insertUser);
+
+           
 			        	echo 'Signed UP';
 			        }else{
 
@@ -89,23 +100,25 @@ if($_GET['action']=="loginSignup"){
     }else{
           // signing in
 
-    	   $users = "SELECT * FROM users WHERE email = '$postEmail'" ;
+    	   $users = "SELECT * FROM users WHERE email = '$postEmail' LIMIT 1" ;
 
     	   $result = $db->query($users);
     	
-    	   $row = $result->fetch_assoc();   
+    	  $row = $result->fetch_assoc()  ;
 
-    	     var_dump($row);
+    	  //   var_dump($row);
 
     	     if($row['password']==$row['id'].$postPassword){
 
+
     	     	echo 1;
+
     	     }else{
 
     	     	$error ="password/username is incorrect";
     	     }    
 
-
+       
     }// end of loginActive==0
 
 

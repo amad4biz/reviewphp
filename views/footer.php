@@ -21,7 +21,7 @@
         <input class="w3-input w3-border" type="text" name="email" id="email">
 
         <label class="w3-label">Password</label>
-        <input class="w3-input w3-border" type="text" name="password" id="password">
+        <input class="w3-input w3-border" type="password" name="password" id="password">
 
          <a id="toggleLogin" href="#">Signup</a>
          <button class="w3-btn w3-blue w3-margin-top" type="button" id="loginSignupBtn"> Login </button>
