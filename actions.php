@@ -15,6 +15,8 @@ include'functions.php';
     $postPassword = trim($_POST['password']);
     $postPassword = htmlspecialchars($_POST['password']);
 
+    $postPassword = $db->real_escape_string($postPassword);
+
   
 
 
@@ -100,21 +102,26 @@ if($_GET['action']=="loginSignup"){
     }else{
           // signing in
 
-    	   $users = "SELECT * FROM users WHERE email = '$postEmail' LIMIT 1" ;
+    	   $users = "SELECT * FROM users WHERE email = '.$postEmail.' LIMIT 1" ;
 
     	   $result = $db->query($users);
     	
-    	  $row = $result->fetch_assoc()  ;
+    	  $row = $result->fetch_array()  ;
 
-    	  //   var_dump($row);
+    	
 
-    	     if($row['password']==$row['id'].$postPassword){
+    	   if(md5(md5($row['password'].$postPassword)) == md5(md5(($row['id']).$postPassword))){
 
+                
+    	     	
+    	     	 echo "logged";
 
-    	     	echo 1;
+ 
+
 
     	     }else{
 
+    	   
     	     	$error ="password/username is incorrect";
     	     }    
 

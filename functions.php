@@ -1,5 +1,9 @@
 <?php 
 
+// starting session for all pages
+
+session_start();
+
 // include('config.php');
 
 //Database configuration
