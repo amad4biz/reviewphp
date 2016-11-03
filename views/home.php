@@ -13,8 +13,9 @@
     <input type="text" class="w3-input w3-border-0 w3-padding-0" placeholder="Ville">
   </li>
 
+ 
   <button class="w3-btn w3-white w3-right" onclick="document.getElementById('id01').style.display='block'"
-class="w3-btn">Login/Signup</button>
+class="w3-btn"> Login/Signup</button>
 
 <input type="hidden" id="loginActive" value="1" name="loginActive">
 

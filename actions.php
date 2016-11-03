@@ -17,6 +17,8 @@ include'functions.php';
 
     $postPassword = $db->real_escape_string($postPassword);
 
+    $postPassword = md5(md5($postPassword));
+
   
 
 
@@ -61,11 +63,11 @@ if($_GET['action']=="loginSignup"){
     if($_POST['loginActive']=='0'){
        
           
-         $users = "SELECT * FROM users WHERE email = '$postEmail'" ;
+         $insertUser = "SELECT * FROM users WHERE email = '$postEmail'" ;
 
         
 
-         $result = $db->query($users) or trigger_error($db->error." [$users]");
+         $result = $db->query($insertUser) or trigger_error($db->error." [$users]");
 
 
 
@@ -79,13 +81,14 @@ if($_GET['action']=="loginSignup"){
              $insertUser = "INSERT INTO users (`email`, `password`) VALUES('".$postEmail."', '".$postPassword."' )";
            
 
-			        if($db->query($insertUser)===TRUE){
+			        if($db->query($insertUser)){
 
-			  $insertUser = "UPDATE users SET `password` = '".md5(md5($_POST['password']))."' WHERE `id` = " .$db->insert_id;
-               $db->query($insertUser);
+						  $insertUser = "UPDATE users SET `password` = '".$postPassword."' WHERE `id` = " .$db->insert_id;
+			               $db->query($insertUser);
 
            
 			        	echo 'Signed UP';
+
 			        }else{
 
 			        	echo 'There is an error';
@@ -95,35 +98,34 @@ if($_GET['action']=="loginSignup"){
 
        	    }
 
-
-       
-
-
-    }else{
+       	}else{
           // signing in
 
-    	   $users = "SELECT * FROM users WHERE email = '.$postEmail.' LIMIT 1" ;
+    	   $insertUser = "SELECT `id`, `email`, `password` FROM users WHERE `email` = '".$postEmail."' LIMIT 1" ;
 
-    	   $result = $db->query($users);
+    	   $result = $db->query($insertUser);
     	
-    	  $row = $result->fetch_array()  ;
+    	   $row = $result->fetch_array()  ;
 
-    	
+    	  // var_dump($row);
 
-    	   if(md5(md5($row['password'].$postPassword)) == md5(md5(($row['id']).$postPassword))){
+    	       
+	    	   if($postPassword == $row['password']){
 
-                
-    	     	
-    	     	 echo "logged";
+                   
+	                
+	    	     	
+	    	     	 echo 1;
 
- 
+	 
 
 
-    	     }else{
-
-    	   
-    	     	$error ="password/username is incorrect";
-    	     }    
+	    	     }else{
+                   
+                    
+	    	   
+	    	     	$error ="password/username is incorrect";
+	    	     }    
 
        
     }// end of loginActive==0

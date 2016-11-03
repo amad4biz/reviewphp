@@ -38,9 +38,9 @@ $('#loginSignupBtn').click(function(){
        data: "email=" + $("#email").val()  + "&password=" + $("#password").val() + "&loginActive=" + $("#loginActive").val(), 
        success : function(result){
 
-             if(result==1){
+             if(result=="1"){
               
-                  window.location.assign('/')
+                  window.location.assign('./views/review')
 
              }else{
                  
