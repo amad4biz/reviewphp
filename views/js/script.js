@@ -40,7 +40,7 @@ $('#loginSignupBtn').click(function(){
 
              if(result=="1"){
               
-                  window.location.assign('./views/review')
+                  window.location.assign('./views/review.php')
 
              }else{
                  
@@ -54,10 +54,52 @@ $('#loginSignupBtn').click(function(){
            }
       })
 
-  })
+  });
 
 
 
+ /*$('#addPost').click(function(){
 
+    $.ajax({
+
+          type: "POST",
+          url:"./actions.php?action=addPost",
+          data: 
+         
+
+    }); 
+     
+
+
+
+})*/
+
+$('#addPost').click(function(){
+
+
+  
+    $.ajax({
+
+
+          type: "POST",
+          url:"./actions.php?action=addRating",
+          data: "rating=" + $('#rating').val() ,
+          success: function(result){
+
+            alert("hello");
+
+
+
+          }  
+        
+
+    }); 
+     
+
+
+
+})  // end of rating function
+
+   
 
 })

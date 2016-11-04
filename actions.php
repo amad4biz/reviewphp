@@ -82,11 +82,10 @@ if($_GET['action']=="loginSignup"){
            
 
 			        if($db->query($insertUser)){
-
+                        
 						  $insertUser = "UPDATE users SET `password` = '".$postPassword."' WHERE `id` = " .$db->insert_id;
 			               $db->query($insertUser);
-
-           
+                   
 			        	echo 'Signed UP';
 
 			        }else{
@@ -109,15 +108,15 @@ if($_GET['action']=="loginSignup"){
 
     	  // var_dump($row);
 
+
     	       
 	    	   if($postPassword == $row['password']){
 
-                   
-	                
-	    	     	
-	    	     	 echo 1;
+	  
+	    	    echo 1;
 
-	 
+                $_SESSION['id'] = $row['id'];
+	         
 
 
 	    	     }else{
@@ -143,6 +142,38 @@ if($_GET['action']=="loginSignup"){
 
 }   // end of signup and login block
 
+
+
+/*if($_GET['action']=='addRating'){
+
+   $ratingScore = 1;
+
+   $ratingScore = $_POST['rating_score']  + $ratingScore;   
+
+   $businessid = $_POST['businessid'];
+
+   $ratingDesc = $_POST['rating_desc'];
+
+
+
+   $Query = "INSERT INTO rating (`rating_score`, `total_points`, `rating_desc`, `userid`, `businessid` ) VALUES('"$ratingScore"', '".$rating_desc."', '".$businessid."')";
+
+   $result = $db->query($Query);
+   $row  = $result->fetch_assoc();
+
+
+
+
+}
+*/
+
+
+
+if ($_GET['action']=='addPost'){
+
+  echo '1';
+
+}// end of addPost
 
 
 

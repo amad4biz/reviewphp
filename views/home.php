@@ -1,25 +1,5 @@
 
-<ul class="w3-navbar w3-blue w3-padding">
-  <li><a href="#">Accueil</a></li>
-  <li><a href="?page=review">Ecris Review</a></li>
-  <li><a href="?page=event">Evenement</a></li>
-  <li><a href="?page=about">About</a></li>
- 
-  <li class="w3-navitem">
-    <input type="text" class="w3-input w3-border-0 w3-padding-0" placeholder="Cherche..">
-  </li>
 
-   <li class="w3-navitem">
-    <input type="text" class="w3-input w3-border-0 w3-padding-0" placeholder="Ville">
-  </li>
-
- 
-  <button class="w3-btn w3-white w3-right" onclick="document.getElementById('id01').style.display='block'"
-class="w3-btn"> Login/Signup</button>
-
-<input type="hidden" id="loginActive" value="1" name="loginActive">
-
-</ul>
 
 <div class="w3-container w3-padding">
 <div class="w3-twothird w3-padding">
@@ -40,6 +20,19 @@ class="w3-btn"> Login/Signup</button>
    <!-- <div class="w3-padding reviews"><?php //displayReviews() ?> </div>-->
    
   </div>
+
+  <div class="w3-row-padding">
+        <div class="w3-col md4 s4"><img src=" http://placehold.it/250x150">
+          <h5>Business Name</h5>
+        </div>
+        <div class="w3-col md4 s4"><img src=" http://placehold.it/250x150">
+        <h5>Business Name</h5></div>
+        <div class="w3-col s4"><img src=" http://placehold.it/250x150">
+
+        <h5>Business Name</h5></div>
+  </div>
+
+
 </div>
 
 

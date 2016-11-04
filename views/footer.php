@@ -24,6 +24,7 @@
         <input class="w3-input w3-border" type="password" name="password" id="password">
 
          <a id="toggleLogin" href="#">Signup</a>
+         
          <button class="w3-btn w3-blue w3-margin-top" type="button"  id="loginSignupBtn"> Login </button>
         </form>
 
