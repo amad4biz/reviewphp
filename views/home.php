@@ -50,6 +50,8 @@
     </div>
     <button class="w3-btn-block w3-blue">+ Connect</button>
   </div>
+
+  <div> <?php  addReviews(); ?></div>
 </div>
 </div>
 </div>

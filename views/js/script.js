@@ -40,7 +40,9 @@ $('#loginSignupBtn').click(function(){
 
              if(result=="1"){
               
-                  window.location.assign('./views/review.php')
+                  window.location.assign('http://localhost:81/review/');
+
+                   
 
              }else{
                  

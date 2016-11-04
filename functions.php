@@ -81,7 +81,7 @@ function addReviews (){
 
 			        
 			         <button class="w3-btn w3-blue w3-margin-top" type="button"  id="addPost"> Add Business </button>
-			  </form>"
+			  </form>
 		  </div>';
 
 	}
