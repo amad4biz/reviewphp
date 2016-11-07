@@ -11,6 +11,7 @@
 <div class="w3-row-padding">
 
    <?php displayReviews('public'); ?>
+   
   <div class="w3-col s4"><img src="http://placehold.it/250x150"></div>
   <div class="w3-col s4"><img src="http://placehold.it/250x150"></div>
   <div class="w3-col s4"><img src="http://placehold.it/250x150"></div>

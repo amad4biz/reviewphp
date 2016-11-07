@@ -1,5 +1,5 @@
 
-
+<style> .loginSignupError.w3-panel.w3-red{ display: none;}</style>
 
 <div class="w3-container w3-padding">
 <div class="w3-twothird w3-padding">
@@ -17,19 +17,23 @@
 
      <h2 class="w3-center">Les Derniers Revues</h2>
     
-   <!-- <div class="w3-padding reviews"><?php //displayReviews() ?> </div>-->
+   <!-- <div class="w3-padding reviews"><?php //displayReviews('public') ?> </div>-->
    
   </div>
 
   <div class="w3-row-padding">
+
+  <?php displayReviews('public'); ?>
+
+
         <div class="w3-col md4 s4"><img src=" http://placehold.it/250x150">
           <h5>Business Name</h5>
         </div>
         <div class="w3-col md4 s4"><img src=" http://placehold.it/250x150">
         <h5>Business Name</h5></div>
         <div class="w3-col s4"><img src=" http://placehold.it/250x150">
-
-        <h5>Business Name</h5></div>
+         <h5>Business Name</h5></div>
+       
   </div>
 
 
@@ -40,18 +44,18 @@
 <div class="w3-third w3-padding">
  <div class="w3-card-4" style="width:90%">
     <header class="w3-container w3-light-grey">
-      <h3>John Doe</h3>
+      <h3>Thierno D</h3>
     </header>
     <div class="w3-container">
      
       <hr>
-      <img src="" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-      <p>CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities.</p><br>
+      <img src="http://placehold.it/50x50"" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+      <p>CEO A Eqsotech Group et Developeur a NYS.</p><br>
     </div>
-    <button class="w3-btn-block w3-blue">+ Connect</button>
-  </div>
+    
+ </div>
 
-  <div> <?php  addReviews(); ?></div>
+  <div class="w3-card-4 w3-margin-top" style="width:90%"> <?php  addReviews(); ?></div>
 </div>
 </div>
 </div>

@@ -1,8 +1,10 @@
 <?php 
 
+
 // starting session for all pages
 
 session_start();
+
 
 // include('config.php');
 
@@ -65,19 +67,20 @@ function addReviews (){
      echo '<div class="">
 			 <form class="w3-container">
 			        
-			         <div class="loginSignupError w3-panel w3-red" id="loginSignupError"></div>
+			        <div class="loginSignupError w3-panel w3-red" id="loginSignupError"></div>
 
-			         <input type="hidden" name="bname" id="bname" value="1">
+				         <input type="hidden" name="bname" id="bname" value="1">
 
-			        <label class="w3-label">Business Name</label>
-			        <input class="w3-input w3-border" type="text" name="bname" id="bname">
+				        <label class="w3-label">Business Name</label>
+				        <input class="w3-input w3-border" type="text" name="bname" id="bname">
 
-			        <label class="w3-label">Business Address</label>
-			        <textarea class="w3-input w3-border" type="" name="badress" id="badress" ></textarea> 
-			         <label class="w3-label">Website</label>
-			        <input class="w3-input w3-border" type="text" name="bname" id="bname">
-			         <label class="w3-label">phone</label>
-			        <input class="w3-input w3-border" type="text" name="bname" id="bname">
+				        <label class="w3-label">Business Address</label>
+				        <textarea class="w3-input w3-border" type="" name="badress" id="badress" ></textarea> 
+
+				         <label class="w3-label">Website</label>
+				        <input class="w3-input w3-border" type="text" name="bwebsite" id="bwebsite">
+				         <label class="w3-label">phone</label>
+				        <input class="w3-input w3-border" type="text" name="bphone" id="bphone">
 
 			        
 			         <button class="w3-btn w3-blue w3-margin-top" type="button"  id="addPost"> Add Business </button>
@@ -86,9 +89,6 @@ function addReviews (){
 
 	}
 
-   
-
-
-}
+} // end of addReviews
 
 ?>

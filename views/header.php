@@ -13,7 +13,13 @@
 <nav class="w3-navbar w3-blue w3-padding">
 <ul class="w3-navbar w3-blue w3-padding">
   <li><a href="#">Accueil</a></li>
-  <li><a href="?page=review">Ecris Review</a></li>
+  
+	  <?php if(isset($_SESSION['id'])) { ?>
+	  
+	     <li><a href="?page=review">Ecris Review</a></li> 
+
+	  <?php } ?>
+
   <li><a href="?page=event">Evenement</a></li>
   <li><a href="?page=about">About</a></li>
  

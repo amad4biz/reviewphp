@@ -144,28 +144,58 @@ if($_GET['action']=="loginSignup"){
 
 
 
-/*if($_GET['action']=='addRating'){
+if($_GET['action']=='addRating'){
 
-   $ratingScore = 1;
+      $ratingScore = $_POST['rating_score'];    
 
-   $ratingScore = $_POST['rating_score']  + $ratingScore;   
-
-   $businessid = $_POST['businessid'];
-
-   $ratingDesc = $_POST['rating_desc'];
+	   $businessid = $_POST['businessid'];
 
 
-
-   $Query = "INSERT INTO rating (`rating_score`, `total_points`, `rating_desc`, `userid`, `businessid` ) VALUES('"$ratingScore"', '".$rating_desc."', '".$businessid."')";
-
-   $result = $db->query($Query);
-   $row  = $result->fetch_assoc();
+	   $ratingDesc = $_POST['rating_desc'];
 
 
+  if (!empty($ratingScore)){
+  
+	   $ratingNum = 1;
+
+	  
+
+   $prevRatingQuery = "SELECT * FROM rating WHERE businessid = '".$businessid."', LIMIT 1";
+
+   $prevRatingResult = $db->query($prevRatingQuery);
+
+   if($prevRatingResult->num_rows > 0){
+	
+      $prevRatingRow = $db->fetch_assoc();
+
+      $ratingNum = $prevRatingRow['rating_score'] + $ratingNum;
+
+      $ratingScore = $prevRatingRow['total_points'] + $ratingScore;
+
+      // updating rating value in the db
+
+      $query  = "UPDATE rating SET `rating_score` = '".$ratingNum."', `total_points` = '".$ratingScore."' WHERE `businessid` = '$businessid' ";  
+
+      $update = $db->query($query);
 
 
-}
-*/
+
+   }else{ // insering new rating if it does not exist
+
+	   	$newRatingQuery = "INSERT INTO rating (`rating_score`, `total_points`, `rating_desc`, `userid`, `businessid` ) VALUES('".$ratingScore."', '".$rating_desc."', '".$businessid."')";
+
+			   $insert = $db->query($newRatingQuery);
+			 
+
+		}
+
+  
+
+} 
+
+
+} // end of rating 
+
 
 
 

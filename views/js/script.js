@@ -42,7 +42,7 @@ $('#loginSignupBtn').click(function(){
               
                   window.location.assign('http://localhost:81/review/');
 
-                   
+
 
              }else{
                  
@@ -60,28 +60,37 @@ $('#loginSignupBtn').click(function(){
 
 
 
- /*$('#addPost').click(function(){
-
+ $('#addPost').click(function(ev){
+            ev.preventDefault();
+   
     $.ajax({
 
           type: "POST",
           url:"./actions.php?action=addPost",
-          data: 
-         
+          data: "bname =" + $('#bname').val() + "&baddress=" + $('#baddress').val() + "&bwebsite=" + $('#bwebsite') + "&bphone=" + $('#bphone'), 
+          success : function(result){
 
-    }); 
+            if(result){
+
+              alert("created");
+            }else{
+
+              alert("there is an error");
+            }
+          }
+
+    })
      
 
+});
 
 
-})*/
 
-$('#addPost').click(function(){
+$('#addreview').click(function(){
 
 
   
     $.ajax({
-
 
           type: "POST",
           url:"./actions.php?action=addRating",
@@ -95,12 +104,12 @@ $('#addPost').click(function(){
           }  
         
 
-    }); 
+    });  
      
 
 
 
-})  // end of rating function
+})  // end of rating function*/
 
    
 
