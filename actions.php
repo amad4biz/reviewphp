@@ -6,21 +6,23 @@ include'functions.php';
 
    $error="";
 // sanitizing email and password input
-    $postEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-    $postEmail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $postEmail = trim($_POST['email']);
-    $postEmail = htmlspecialchars($_POST['email']);
+  if(isset($_POST['email'])) { $postEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL); };
+  if(isset($_POST['email'])) {$postEmail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); } ;
+  if (isset($_POST['email'])) {
+  	                             $postEmail = trim($_POST['email']);
+                                 $postEmail = htmlspecialchars($_POST['email']);
+                              } ;
 
-    $postPassword = filter_var( $_POST['password'], FILTER_SANITIZE_STRING);
-    $postPassword = trim($_POST['password']);
-    $postPassword = htmlspecialchars($_POST['password']);
+   
 
-    $postPassword = $db->real_escape_string($postPassword);
-
-    $postPassword = md5(md5($postPassword));
-
-  
-
+   if(isset($_POST['password'])){
+   	                             $postPassword = filter_var( $_POST['password'], FILTER_SANITIZE_STRING);
+                                 $postPassword = trim($_POST['password']);
+                                  $postPassword = htmlspecialchars($_POST['password']);
+                                  $postPassword = $db->real_escape_string($postPassword);
+                                   $postPassword = md5(md5($postPassword));
+                                 } 
+ 
 
 // validation of user id and password
 
@@ -146,10 +148,10 @@ if($_GET['action']=="loginSignup"){
 
 if($_GET['action']=='addRating'){
 
+      $businessid = $_POST['businessid'];
+
+
       $ratingScore = $_POST['rating_score'];    
-
-	   $businessid = $_POST['businessid'];
-
 
 	   $ratingDesc = $_POST['rating_desc'];
 
@@ -185,7 +187,7 @@ if($_GET['action']=='addRating'){
 	   	$newRatingQuery = "INSERT INTO rating (`rating_score`, `total_points`, `rating_desc`, `userid`, `businessid` ) VALUES('".$ratingScore."', '".$rating_desc."', '".$businessid."')";
 
 			   $insert = $db->query($newRatingQuery);
-			 
+			 echo 1;
 
 		}
 
@@ -201,7 +203,7 @@ if($_GET['action']=='addRating'){
 
 if ($_GET['action']=='addPost'){
 
-  echo '1';
+  echo '5';
 
 }// end of addPost
 

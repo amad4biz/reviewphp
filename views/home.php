@@ -28,11 +28,17 @@
 
         <div class="w3-col md4 s4"><img src=" http://placehold.it/250x150">
           <h5>Business Name</h5>
+          <p>Rate: <span class="w3-badge w3-blue">6</span></p>
         </div>
         <div class="w3-col md4 s4"><img src=" http://placehold.it/250x150">
-        <h5>Business Name</h5></div>
+        <h5>Business Name</h5>
+         <p>Rate: <span class="w3-badge w3-blue">3.5</span></p>
+         </div>
+       
         <div class="w3-col s4"><img src=" http://placehold.it/250x150">
-         <h5>Business Name</h5></div>
+         <h5>Business Name</h5>
+         <p>Rate:<span class="w3-badge w3-blue" id="addreview">4</span> <span><?php addReviews()?></span></p></div>
+         
        
   </div>
 
@@ -55,7 +61,7 @@
     
  </div>
 
-  <div class="w3-card-4 w3-margin-top" style="width:90%"> <?php  addReviews(); ?></div>
+  <div class="w3-card-4 w3-margin-top" style="width:90%"> <?php  addBusiness(); ?></div>
 </div>
 </div>
 </div>

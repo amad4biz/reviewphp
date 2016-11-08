@@ -60,12 +60,12 @@ function displayReviews($type){
 
 
 
-function addReviews (){
+function addBusiness (){
 
 	if(isset($_SESSION['id']) && ($_SESSION['id']> 0) ){
 	
      echo '<div class="">
-			 <form class="w3-container">
+			 <div class="w3-container">
 			        
 			        <div class="loginSignupError w3-panel w3-red" id="loginSignupError"></div>
 
@@ -83,12 +83,28 @@ function addReviews (){
 				        <input class="w3-input w3-border" type="text" name="bphone" id="bphone">
 
 			        
-			         <button class="w3-btn w3-blue w3-margin-top" type="button"  id="addPost"> Add Business </button>
-			  </form>
+			         <button class="w3-btn w3-blue w3-margin-top" type="button"  id="addBus"> Add Business </button>
+			  </div>
 		  </div>';
 
 	}
 
 } // end of addReviews
+
+function addReviews(){
+
+           echo '<span>
+                   
+                  <div class="ui star rating" name="rating" id="rating" value="0"  data-rating="3"></div>
+                 
+				  <div id="rateYo"> </div></span>';
+	
+
+
+	}
+
+ 
+
+
 
 ?>

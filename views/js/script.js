@@ -29,7 +29,7 @@ $(document).ready(function(){
 
 
 $('#loginSignupBtn').click(function(){
-
+   
 
    $.ajax({
 
@@ -60,8 +60,7 @@ $('#loginSignupBtn').click(function(){
 
 
 
- $('#addPost').click(function(ev){
-            ev.preventDefault();
+ $('#addBus').click(function(){
    
     $.ajax({
 
@@ -72,7 +71,8 @@ $('#loginSignupBtn').click(function(){
 
             if(result){
 
-              alert("created");
+              alert(result);
+
             }else{
 
               alert("there is an error");
@@ -87,30 +87,30 @@ $('#loginSignupBtn').click(function(){
 
 
 $('#addreview').click(function(){
-
-
-  
+     
     $.ajax({
 
           type: "POST",
           url:"./actions.php?action=addRating",
-          data: "rating=" + $('#rating').val() ,
+          data: "rating=" + $(this).val() ,
           success: function(result){
-
-            alert("hello");
-
-
-
-          }  
+            if(result){
+               alert(result);
+            }
+          
+        }  
         
-
     });  
-     
-
-
+      $(this).attr("checked");
 
 })  // end of rating function*/
 
-   
 
-})
+
+
+
+
+
+});  
+
+
