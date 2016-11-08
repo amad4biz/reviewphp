@@ -6,21 +6,29 @@ $(document).ready(function(){
           
           $('#loginActive').val("0");
 
+           $('.hide-name').show();
+
            $('#modalTitle').html('Signup');
 
           $('#loginSignupBtn').html('Signup');
 
-          $('#toggleLogin').html('Login')
+          $('#toggleLogin').html('Login');
+          
 
         }else{
 
            $('#loginActive').val("1");
 
+            $('.hide-name').hide();
+
            $('#modalTitle').html('Login');
 
           $('#loginSignupBtn').html('Login');
 
-          $('#toggleLogin').html('Signup')
+          $('#toggleLogin').html('Signup');
+
+         
+         
 
         }
      

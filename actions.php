@@ -6,8 +6,8 @@ include'functions.php';
 
    $error="";
 // sanitizing email and password input
-  if(isset($_POST['email'])) { $postEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL); };
-  if(isset($_POST['email'])) {$postEmail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); } ;
+  if(isset($_POST['email'])) { $postEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL); }
+  if(isset($_POST['email'])) {$postEmail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); } 
   if (isset($_POST['email'])) {
   	                             $postEmail = trim($_POST['email']);
                                  $postEmail = htmlspecialchars($_POST['email']);

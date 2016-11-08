@@ -23,6 +23,12 @@
         <label class="w3-label">Password</label>
         <input class="w3-input w3-border" type="password" name="password" id="password">
 
+         <label class="w3-label hide-name">First Name</label>
+        <input class="w3-input w3-border hide-name" type="text" name="fname" id="fname">
+
+         <label class="w3-label hide-name">Last Name</label>
+        <input class="w3-input w3-border hide-name" type="password" name="lname" id="lname">
+
          <a id="toggleLogin" href="#">Signup</a>
          
          <button class="w3-btn w3-blue w3-margin-top" type="button"  id="loginSignupBtn"> Login </button>
