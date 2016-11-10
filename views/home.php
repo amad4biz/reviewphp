@@ -23,21 +23,25 @@
 
   <div class="w3-row-padding">
 
-  <?php displayReviews('public'); ?>
-
-
         <div class="w3-col md4 s4"><img src=" http://placehold.it/250x150">
           <h5>Business Name</h5>
-          <p>Rate: <span class="w3-badge w3-blue">6</span></p>
+        
+           <div><?php displayReviews('public'); ?> </div>
+  
+
         </div>
         <div class="w3-col md4 s4"><img src=" http://placehold.it/250x150">
         <h5>Business Name</h5>
-         <p>Rate: <span class="w3-badge w3-blue">3.5</span></p>
+        <div><?php displayReviews('public'); ?> </div>
+        <div class="rateYo"></div>
          </div>
        
         <div class="w3-col s4"><img src=" http://placehold.it/250x150">
          <h5>Business Name</h5>
-         <p>Rate:<span class="w3-badge w3-blue" id="addreview">4</span> <span><?php addReviews()?></span></p></div>
+          <div class="rateYo"></div>
+         <p>Rate:<span class="w3-badge w3-blue" id="#addreview">4</span> <span><?php addReviews()?></span></p></div>
+
+         
          
        
   </div>
@@ -68,3 +72,22 @@
 
 
 
+  <script type="text/javascript">
+
+  $(document).ready(function(){
+    
+
+    //Make sure that the dom is ready
+  $(function () {
+   
+    $(".rateYo").rateYo({
+      rating: 3.6
+    });
+   
+  });
+
+  
+
+  })
+
+  </script>

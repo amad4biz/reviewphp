@@ -34,26 +34,35 @@ if(isset($_GET['function']) && ($_GET['function']=='logout')){
 
 
 function displayReviews($type){
+   
+ global $db, $firstname;
 
+$busid = (isset($_POST['busid']) ) ? $_POST['busid'][0] : '';
 
- global $db;
-
+var_dump($busid);
   
-    $reviews = "SELECT rating_desc, rating_score, FORMAT((total_points / rating_score),1) as average_rating FROM rating WHERE businessid = 2 AND userid = 51";
+    $reviews = "SELECT rating_desc, busid, rating_score, total_points, FORMAT((total_points / rating_score),1) as average_rating FROM 
+               rating WHERE  busid = '".$busid."' ";
 
-    $result = $db->query($reviews);
+    $result = $db->query($reviews)  or trigger_error($db->error." [$result]");;
 
+     $rowCount = $result->num_rows;
 
-    if($result->num_rows>0){
+    if($rowCount>0){
        
        while($row= $result->fetch_assoc()){
 
-    //	echo $row['rating_score'];
-       	echo $row['average_rating'];
-       	echo $row['rating_desc'];
+    	echo '<p> Total: <span class="w3-badge w3-blue">'.$row['total_points']. '</span> Average:<span class="w3-badge w3-blue">'.$row['average_rating']. '</span></p>';
+    
+       	echo '<p>' .$row['rating_desc']. '</p>' ;
+
+       	echo '<p> Reviewed by :' .$firstname. '</p>';
+       
+       	echo '<hr/>';
        }
     	
     }
+
 
 
 }
@@ -72,13 +81,14 @@ function addBusiness (){
 				         <input type="hidden" name="bname" id="bname" value="1">
 
 				        <label class="w3-label">Business Name</label>
-				        <input class="w3-input w3-border" type="text" name="bname" id="bname">
+				        <input class="w3-input w3-border" type="" name="bname" id="bname">
 
 				        <label class="w3-label">Business Address</label>
-				        <textarea class="w3-input w3-border" type="" name="badress" id="badress" ></textarea> 
+				        <textarea class="w3-input w3-border" type="text" name="baddress" id="baddress" ></textarea> 
 
 				         <label class="w3-label">Website</label>
-				        <input class="w3-input w3-border" type="text" name="bwebsite" id="bwebsite">
+				        <textarea class="w3-input w3-border" type="text" name="burl" id="bwebsite"></textarea>
+
 				         <label class="w3-label">phone</label>
 				        <input class="w3-input w3-border" type="text" name="bphone" id="bphone">
 

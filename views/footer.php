@@ -27,7 +27,7 @@
         <input class="w3-input w3-border hide-name" type="text" name="fname" id="fname">
 
          <label class="w3-label hide-name">Last Name</label>
-        <input class="w3-input w3-border hide-name" type="password" name="lname" id="lname">
+        <input class="w3-input w3-border hide-name" type="text" name="lname" id="lname">
 
          <a id="toggleLogin" href="#">Signup</a>
          
@@ -39,7 +39,10 @@
   </div>
 </div> <!-- modal end -->
 
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.js"></script>
 <script type="text/javascript" src="views/js/script.js"></script>
 
 </body>
